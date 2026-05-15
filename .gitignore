@@ -1,0 +1,12 @@
+target/
+META-INF/
+.idea/
+*.class
+*.jar
+*.log
+.DS_Store
+*.iml
+.settings/
+.classpath
+.project
+README.txt
