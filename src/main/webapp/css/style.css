@@ -120,6 +120,29 @@ th, td { padding: 13px 10px; text-align: left; border-bottom: 1px solid #eadfcb;
 
 
 .restaurant-hero { background: linear-gradient(135deg, #8a2f19 0%, #4f3523 100%); }
+.about-hero { background: linear-gradient(135deg, #5b392a 0%, #8a2f19 100%); }
+.team-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.team-card { min-height: 330px; align-items: flex-start; }
+.team-card .profile-photo {
+    width: 96px;
+    height: 96px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f4dfb2;
+    box-shadow: 0 8px 18px rgba(36, 31, 26, 0.12);
+}
+.avatar {
+    width: 56px;
+    height: 56px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #b43f22;
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+}
 .search-card {
     background: #fffefa;
     border: 1px solid #eadfcb;

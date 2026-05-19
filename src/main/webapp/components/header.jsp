@@ -5,6 +5,9 @@
         <span>Pokhara Bites</span>
     </a>
     <nav class="nav">
+        <a href="${pageContext.request.contextPath}/about">About Us</a>
+        <a href="${pageContext.request.contextPath}/restaurants">Restaurants</a>
+        <a href="${pageContext.request.contextPath}/cart">Cart</a>
         <c:choose>
             <c:when test="${not empty sessionScope.user}">
                 <c:if test="${sessionScope.user.admin}">
@@ -13,10 +16,9 @@
                     <a href="${pageContext.request.contextPath}/admin/menu-items">Menu</a>
                 </c:if>
                 <c:if test="${not sessionScope.user.admin}">
-                    <a href="${pageContext.request.contextPath}/restaurants">Restaurants</a>
                     <a href="${pageContext.request.contextPath}/menu">Menu</a>
-                    <a href="${pageContext.request.contextPath}/cart">Cart</a>
                     <a href="${pageContext.request.contextPath}/orders">Orders</a>
+                    <a href="${pageContext.request.contextPath}/about">Orders</a>
                 </c:if>
                 <form method="post" action="${pageContext.request.contextPath}/logout" class="inline-form">
                     <button class="link-button" type="submit">Logout</button>

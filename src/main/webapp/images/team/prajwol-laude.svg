@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Prajwol Laude profile picture">
+  <rect width="320" height="320" fill="#e8f6e9"/>
+  <circle cx="160" cy="124" r="62" fill="#5b392a"/>
+  <path d="M67 282c13-66 58-98 93-98s80 32 93 98" fill="#1c5d2e"/>
+  <circle cx="160" cy="128" r="43" fill="#e5b58f"/>
+  <path d="M106 116c16-48 94-50 110 0-29-12-72-11-110 0z" fill="#2d2118"/>
+  <circle cx="143" cy="133" r="5" fill="#241f1a"/>
+  <circle cx="177" cy="133" r="5" fill="#241f1a"/>
+  <path d="M145 156c10 8 22 8 32 0" fill="none" stroke="#693a14" stroke-width="7" stroke-linecap="round"/>
+  <text x="160" y="286" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#fffaf0">PL</text>
+</svg>

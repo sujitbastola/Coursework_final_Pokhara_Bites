@@ -15,6 +15,7 @@
         <c:if test="${not empty error || not empty param.error}"><div class="alert error"><c:out value="${empty error ? param.error : error}"/></div></c:if>
         <c:if test="${not empty param.success}"><div class="alert success"><c:out value="${param.success}"/></div></c:if>
         <form method="post" action="${pageContext.request.contextPath}/login" class="form-card">
+            <input type="hidden" name="redirect" value="${fn:escapeXml(param.redirect)}">
             <label>Email <input type="text" name="email" value="${fn:escapeXml(param.email)}"></label>
             <label>Password <input type="password" name="password"></label>
             <button type="submit" class="primary">Login</button>

@@ -31,10 +31,6 @@ public class AddToCartServlet extends HttpServlet {
             }
             HttpSession session = req.getSession();
             Integer selectedRestaurantId = (Integer) session.getAttribute("selectedRestaurantId");
-            if (selectedRestaurantId == null || selectedRestaurantId != item.getRestaurantId()) {
-                resp.sendRedirect(req.getContextPath() + "/restaurants?error=Select this restaurant before ordering");
-                return;
-            }
             Integer cartRestaurantId = (Integer) session.getAttribute("cartRestaurantId");
             List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
             if (cart == null) {
@@ -44,6 +40,13 @@ public class AddToCartServlet extends HttpServlet {
             if (cartRestaurantId != null && cartRestaurantId != item.getRestaurantId() && !cart.isEmpty()) {
                 resp.sendRedirect(req.getContextPath() + "/cart?error=Clear your cart before ordering from another restaurant");
                 return;
+            }
+            if (selectedRestaurantId == null || selectedRestaurantId != item.getRestaurantId()) {
+                if (!cart.isEmpty()) {
+                    resp.sendRedirect(req.getContextPath() + "/restaurants?error=Clear your cart before ordering from another restaurant");
+                    return;
+                }
+                session.setAttribute("selectedRestaurantId", item.getRestaurantId());
             }
             session.setAttribute("cartRestaurantId", item.getRestaurantId());
             boolean updated = false;

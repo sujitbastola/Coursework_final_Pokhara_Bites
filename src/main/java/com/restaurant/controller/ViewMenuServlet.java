@@ -30,6 +30,7 @@ public class ViewMenuServlet extends HttpServlet {
                 resp.sendRedirect(req.getContextPath() + "/restaurants?error=Select a restaurant first");
                 return;
             }
+            req.getSession().setAttribute("selectedRestaurantId", restaurantId);
             String q = ValidationUtils.clean(req.getParameter("q"));
             req.setAttribute("q", q);
             req.setAttribute("restaurant", restaurantDAO.findById(restaurantId));

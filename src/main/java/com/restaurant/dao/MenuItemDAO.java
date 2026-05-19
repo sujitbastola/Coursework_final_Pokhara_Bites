@@ -77,6 +77,30 @@ public class MenuItemDAO {
         }
     }
 
+    public List<MenuItem> searchAvailable(String keyword) throws SQLException {
+        String like = "%" + keyword + "%";
+        String sql = "SELECT mi.*, r.name restaurant_name FROM menu_items mi "
+                + "JOIN restaurants r ON r.id=mi.restaurant_id "
+                + "WHERE mi.availability=TRUE "
+                + "AND (mi.name LIKE ? OR mi.description LIKE ? OR mi.category LIKE ? OR r.name LIKE ? OR r.cuisine_type LIKE ?) "
+                + "ORDER BY r.name, mi.category, mi.name";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, like);
+            ps.setString(2, like);
+            ps.setString(3, like);
+            ps.setString(4, like);
+            ps.setString(5, like);
+            try (ResultSet rs = ps.executeQuery()) {
+                List<MenuItem> items = new ArrayList<>();
+                while (rs.next()) {
+                    items.add(map(rs));
+                }
+                return items;
+            }
+        }
+    }
+
     public int countMenuItems() throws SQLException {
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(Queries.COUNT_MENU_ITEMS);

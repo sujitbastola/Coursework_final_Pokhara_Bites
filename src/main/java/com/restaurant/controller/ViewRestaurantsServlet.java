@@ -1,6 +1,7 @@
 package com.restaurant.controller;
 
 import com.restaurant.dao.RestaurantDAO;
+import com.restaurant.dao.MenuItemDAO;
 import com.restaurant.utils.ValidationUtils;
 
 import jakarta.servlet.ServletException;
@@ -13,6 +14,7 @@ import java.io.IOException;
 @WebServlet({"/restaurants", "/admin/restaurants"})
 public class ViewRestaurantsServlet extends HttpServlet {
     private final RestaurantDAO restaurantDAO = new RestaurantDAO();
+    private final MenuItemDAO menuItemDAO = new MenuItemDAO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,6 +22,7 @@ public class ViewRestaurantsServlet extends HttpServlet {
             String q = ValidationUtils.clean(req.getParameter("q"));
             req.setAttribute("q", q);
             req.setAttribute("restaurants", ValidationUtils.isBlank(q) ? restaurantDAO.findAll() : restaurantDAO.search(q));
+            req.setAttribute("foodResults", ValidationUtils.isBlank(q) ? null : menuItemDAO.searchAvailable(q));
             if (req.getServletPath().startsWith("/admin")) {
                 req.getRequestDispatcher("/WEB-INF/views/admin/restaurants.jsp").forward(req, resp);
             } else {

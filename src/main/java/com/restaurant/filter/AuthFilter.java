@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/admin/*", "/select-restaurant", "/menu", "/add-to-cart", "/cart", "/checkout", "/place-order", "/orders"})
+@WebFilter(urlPatterns = {"/admin/*", "/checkout", "/place-order", "/orders"})
 public class AuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {}
@@ -26,7 +26,8 @@ public class AuthFilter implements Filter {
         String path = req.getServletPath();
 
         if (user == null) {
-            res.sendRedirect(req.getContextPath() + "/login?error=Please login first");
+            String redirect = "/place-order".equals(path) ? "/checkout" : path;
+            res.sendRedirect(req.getContextPath() + "/login?error=Please+login+to+checkout&redirect=" + redirect);
             return;
         }
         if (path.startsWith("/admin") && !user.isAdmin()) {

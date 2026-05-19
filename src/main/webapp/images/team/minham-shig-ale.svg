@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Minham Shig Ale profile picture">
+  <rect width="320" height="320" fill="#eadfcb"/>
+  <circle cx="160" cy="124" r="62" fill="#4f3523"/>
+  <path d="M67 282c13-66 58-98 93-98s80 32 93 98" fill="#7f1d1d"/>
+  <circle cx="160" cy="128" r="43" fill="#dca681"/>
+  <path d="M108 111c14-44 92-54 106 2-31-11-69-10-106-2z" fill="#241f1a"/>
+  <circle cx="143" cy="133" r="5" fill="#241f1a"/>
+  <circle cx="177" cy="133" r="5" fill="#241f1a"/>
+  <path d="M146 156c9 8 21 8 30 0" fill="none" stroke="#693a14" stroke-width="7" stroke-linecap="round"/>
+  <text x="160" y="286" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#fffaf0">MA</text>
+</svg>
