@@ -49,13 +49,13 @@
         </article>
         <article class="card team-card">
             <img class="profile-photo" src="${pageContext.request.contextPath}/images/team/prajit-laude.svg" alt="Prajit Laude">
-            <h2>PRAJIT LAUDE</h2>
+            <h2>PRAJIT KC</h2>
             <p class="muted">QA Tester</p>
             <p>Tests customer flows, admin actions, form validation, and edge cases before release.</p>
         </article>
         <article class="card team-card">
             <img class="profile-photo" src="${pageContext.request.contextPath}/images/team/prajwol-laude.svg" alt="Prajwol Laude">
-            <h2>PRAJWOL LAUDE</h2>
+            <h2>PRAJWOL SHRESTHA</h2>
             <p class="muted">Documentation</p>
             <p>Documents setup steps, user roles, project features, and future improvements.</p>
         </article>
